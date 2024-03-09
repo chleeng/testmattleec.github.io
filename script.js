@@ -341,7 +341,9 @@ function skillTransition() {
     var checkSafari = false;
     try {
         checkSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
-    } catch(err) {}
+    } catch(err) {
+        console.log("error");
+    }
     checkSafari = (checkSafari || ((navUA.indexOf('safari') != -1)&& (!(navUA.indexOf('chrome')!= -1) && (navUA.indexOf('version/')!= -1))));
 
     // skillLogos.forEach((skills, index) => {
