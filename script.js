@@ -344,15 +344,26 @@ function skillTransition() {
     } catch(err) {}
     checkSafari = (checkSafari || ((navUA.indexOf('safari') != -1)&& (!(navUA.indexOf('chrome')!= -1) && (navUA.indexOf('version/')!= -1))));
 
-    skillLogos.forEach((skills, index) => {
-        skills.style.transition = "transform 1s, opacity 1s";
-        skills.style.transform = `rotateY(${index * (360 / skillLogos.length)}deg) translateZ(${imgDFR}px)`;
-        skills.style.opacity = "1";
-        if (!checkSafari) {
-            skills.classList.add('imgReflect');
-        }
-        skills.style.transitionDelay = ".500s";
-    });
+    // skillLogos.forEach((skills, index) => {
+    //     skills.style.transition = "transform 1s, opacity 1s";
+    //     skills.style.transform = `rotateY(${index * (360 / skillLogos.length)}deg) translateZ(${imgDFR}px)`;
+    //     skills.style.opacity = "1";
+    //     if (!checkSafari) {
+    //         skills.classList.add('imgReflect');
+    //     }
+    //     skills.style.transitionDelay = ".500s";
+    // });
+    setTimeout(() => {
+        skillLogos.forEach((skills, index) => {
+            skills.style.transition = "transform 1s, opacity 1s";
+            skills.style.transform = `rotateY(${index * (360 / skillLogos.length)}deg) translateZ(${imgDFR}px)`;
+            skills.style.opacity = "1";
+            if (!checkSafari) {
+                skills.classList.add('imgReflect');
+            }
+        });
+        initResponsive();
+    }, 500);
     initResponsive();
 }
 
