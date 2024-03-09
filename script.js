@@ -353,17 +353,43 @@ function skillTransition() {
     //     }
     //     skills.style.transitionDelay = ".500s";
     // });
-    setTimeout(() => {
+
+
+    // setTimeout(() => {
+    //     if (checkSafari) {
+    //         skillLogos.forEach((skills, index) => {
+    //             skills.style.transition = "transform 1s, opacity 1s";
+    //             skills.style.transform = "rotateY(" + (index * (360 / skillLogos.length)) + "deg) translateZ(" + imgDFR + "px)";
+    //             skills.style.opacity = "1";
+    //             skills.style.transitionDelay = ".500s";
+    //         });
+    //     } else {
+    //         skillLogos.forEach((skills, index) => {
+    //             skills.style.transition = "transform 1s, opacity 1s";
+    //             skills.style.transform = "rotateY(" + (index * (360 / skillLogos.length)) + "deg) translateZ(" + imgDFR + "px)";
+    //             skills.style.opacity = "1";
+    //             skills.classList.add('imgReflect');
+    //             skills.style.transitionDelay = ".500s";
+    //         });
+    //     }
+    //     initResponsive();
+    // }, 500);
+    if (checkSafari) {
         skillLogos.forEach((skills, index) => {
             skills.style.transition = "transform 1s, opacity 1s";
-            skills.style.transform = `rotateY(${index * (360 / skillLogos.length)}deg) translateZ(${imgDFR}px)`;
+            skills.style.transform = "rotateY(" + (index * (360 / skillLogos.length)) + "deg) translateZ(" + imgDFR + "px)";
             skills.style.opacity = "1";
-            if (!checkSafari) {
-                skills.classList.add('imgReflect');
-            }
+            skills.style.transitionDelay = ".500s";
         });
-        initResponsive();
-    }, 500);
+    } else {
+        skillLogos.forEach((skills, index) => {
+            skills.style.transition = "transform 1s, opacity 1s";
+            skills.style.transform = "rotateY(" + (index * (360 / skillLogos.length)) + "deg) translateZ(" + imgDFR + "px)";
+            skills.style.opacity = "1";
+            skills.classList.add('imgReflect');
+            skills.style.transitionDelay = ".500s";
+        });
+    }
     initResponsive();
 }
 
